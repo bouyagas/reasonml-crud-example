@@ -1,0 +1,13 @@
+.client-remove-icon-header {
+  width: 30px;
+}
+.client-icon-container > .pt-icon-standard {
+  visibility: hidden;
+  opacity: 0;
+}
+.client-table-row:hover .client-icon-container > .pt-icon-standard {
+  visibility: visible;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 200ms ease-out;
+}
