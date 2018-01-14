@@ -1,6 +1,6 @@
 # ReasonML CRUD example
 
-Purpose of this project was to study REASONML and find a simple and lean way how to implement common CRUD functionality using simple Client-entity. Also including partial bindings to BluebirdJs library.
+Purpose of this project was to study REASONML and find a simple and lean way how to implement common CRUD functionality using simple Client-entity. Also including partial bindings to BlueprintJs library.
 
 This project was bootstrapped with -> https://github.com/reasonml-community/reason-scripts
 
