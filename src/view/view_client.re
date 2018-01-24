@@ -33,7 +33,7 @@ let make = (~id, _children) => {
       </div>
     },
     didMount: (self) => {
-      let handleClientLoaded = self.reduce((client) => Loaded(client));
+      let handleClientLoaded = (client) => self.send(Loaded(client));
       Js.Promise.(
         Client.Api.fetch(id)
         |> then_(
