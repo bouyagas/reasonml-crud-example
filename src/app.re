@@ -1,41 +1,45 @@
 open Utils;
 
-open View;
-
 requireCSS("./app.css");
 
 let logo = requireAssetURI("./logo.svg");
 
-let component = ReasonReact.statelessComponent("app");
+type state = {mainContent: ReasonReact.reactElement};
 
-let make = (~route, _children) => {
+type action =
+  | MainContentChanged(ReasonReact.reactElement);
+
+let component = ReasonReact.reducerComponent("App");
+
+let make = (_children) => {
   ...component,
-  render: (_self) => {
-    let page =
-      switch route {
-      | Routing.Home => <Home />
-      | Routing.Clients => <Clients />
-      | Routing.Client(id) => <Client id />
-      };
+  initialState: () => {mainContent: <View_home />},
+  render: (self) =>
     <div className="app">
       <Blueprintjs.Navbar className="pt-dark">
         <Blueprintjs.NavbarGroup align=Blueprintjs.NavbarAlign.Left>
-          <a href=("#" ++ Routing.Home.url())>
+          <Link route=Routes.Home className="test">
             <img src=logo className="app-logo" alt="logo" />
-          </a>
-          <a className="pt-navbar-heading pt-button pt-minimal" href=("#" ++ Routing.Home.url())>
+          </Link>
+          <Link route=Routes.Home className="pt-navbar-heading pt-button pt-minimal">
             (textEl("REASONML CRUD EXAMPLE"))
-          </a>
+          </Link>
         </Blueprintjs.NavbarGroup>
         <Blueprintjs.NavbarGroup align=Blueprintjs.NavbarAlign.Right>
-          <a href=("#" ++ Routing.Clients.url()) className="pt-button pt-minimal pt-icon-people">
+          <Link route=Routes.Clients className="pt-button pt-minimal pt-icon-people">
             (textEl("Clients"))
-          </a>
+          </Link>
           <Blueprintjs.NavbarDivider />
           <Blueprintjs.Button className="pt-minimal" iconName="cog" />
         </Blueprintjs.NavbarGroup>
       </Blueprintjs.Navbar>
-      <div className="app-content"> page </div>
-    </div>
-  }
+      <div className="app-content"> self.state.mainContent </div>
+    </div>,
+  reducer: (action, _state) =>
+    switch action {
+    | MainContentChanged(el) => ReasonReact.Update({mainContent: el})
+    },
+  subscriptions: (self) => [
+    Sub(() => Router.init((el) => self.send(MainContentChanged(el))), Router.destroy)
+  ]
 };

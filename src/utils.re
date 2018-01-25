@@ -47,3 +47,9 @@ let optToArrayOrEmpty = (x) =>
   | Some(items) => items
   | None => Array.of_list([])
   };
+
+let optStringOrEmpty = (x) =>
+  switch x {
+  | Some(str) => str
+  | None => ""
+  };

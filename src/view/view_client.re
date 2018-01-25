@@ -26,7 +26,7 @@ let make = (~id, _children) => {
         };
       <div>
         <div className="margin-bottom-lg">
-          <a href=("#" ++ Routing.Clients.url())> (textEl("< Back")) </a>
+          <Link route=Routes.Clients> (textEl("< Back")) </Link>
         </div>
         <h1 className="pt-running-text"> (textEl("Client")) </h1>
         <div> clientContent </div>

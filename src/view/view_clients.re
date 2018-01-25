@@ -102,9 +102,10 @@ let make = (_children) => {
   /**
    * "Private" functions are introduced first
    */
-  let renderClient = (client: Client.t, removeClient, openEditDialog) =>
-    <tr className="client-table-row" key=(optIntToString(client.id))>
-      <td> <a href=("#" ++ Routing.Client.url(client.id))> (optIntEl(client.id)) </a> </td>
+  let renderClient = (client: Client.t, removeClient, openEditDialog) => {
+    let id = optIntOrRaise(client.id);
+    <tr className="client-table-row" key=(string_of_int(id))>
+      <td> <Link route=(Routes.Client(id))> (intEl(id)) </Link> </td>
       <td> (textEl(client.name)) </td>
       <td>
         <div className="client-icon-container">
@@ -120,7 +121,8 @@ let make = (_children) => {
           />
         </div>
       </td>
-    </tr>;
+    </tr>
+  };
   let renderClients = (clients: array(Client.t), removeClient, openEditDialog) =>
     <table className="pt-table pt-striped client-table">
       <thead>
