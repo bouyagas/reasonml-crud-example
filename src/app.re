@@ -13,7 +13,7 @@ let component = ReasonReact.reducerComponent("App");
 
 let make = (_children) => {
   ...component,
-  initialState: () => {mainContent: <View_home />},
+  initialState: () => {mainContent: Router.getInitialPage()},
   render: (self) =>
     <div className="app">
       <Blueprintjs.Navbar className="pt-dark">

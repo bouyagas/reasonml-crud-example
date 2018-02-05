@@ -5,7 +5,7 @@
   "url": "https://github.com/monadoy/reasonml-crud-example",
   "proxy": "http://localhost:3001/",
   "dependencies": {
-    "@blueprintjs/core": "^1.35.0",
+    "@blueprintjs/core": "^1.35.3",
     "@glennsl/bs-json": "^1.0.1",
     "bs-fetch": "^0.2.1",
     "css-loader": "^0.28.9",
@@ -26,7 +26,7 @@
     "body-parser": "^1.18.2",
     "bs-jest": "^0.3.2",
     "express": "^4.16.2",
-    "lokijs": "^1.5.1",
-    "reason-react": "^0.3.0"
+    "lokijs": "^1.5.2",
+    "reason-react": "^0.3.2"
   }
 }

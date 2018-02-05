@@ -24,3 +24,5 @@ let getRoute = (path) =>
   | [] => Home
   | _ => NotFound
   };
+
+let convertToUrl = (path) => List.fold_right((x, acc) => "/" ++ x ++ acc, path, "");
