@@ -4,6 +4,8 @@ Purpose of this project was to study REASONML and find a simple and lean way how
 
 This project was bootstrapped with -> https://github.com/reasonml-community/reason-scripts
 
+See more info from -> https://monad.fi/en/reasonml-by-example/
+
 ## Running the example
 Install yarn if you don't have:<br>
 `npm install -g yarn`
